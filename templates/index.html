@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Albert Montufar's Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="./static/assets/css/main.css"/>
+    <link rel="icon" type="image/x-icon" href="./static/assets/images/favicon.ico">
+    <noscript>
+        <link rel="stylesheet" href="./static/assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <span class="icon fa-gem"></span>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>About Me</h1>
+                <p>I'm sexy and I know it!!!!</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!--<li><a href="#elements">Elements</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Intro -->
+        <article id="intro">
+            <h2 class="major">About Me</h2>
+            <span class="image main"><img src="static/assets/images/pic01.jpg" alt=""/></span>
+            <p>Check out my stuff <a href="#work">MY STUFF</a>.</p>
+            <p>Some more cool things about me</p>
+        </article>
+
+        <!-- Work -->
+        <article id="work">
+            <h2 class="major">Work</h2>
+            <span class="image main"><img src="static/assets/images/pic02.jpg" alt=""/></span>
+            <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac.
+                Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin
+                mauris nec lorem luctus ultrices.</p>
+            <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed
+                nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet
+                massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus
+                et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+        </article>
+
+        <!-- About -->
+        <article id="about">
+            <h2 class="major">About</h2>
+            <span class="image main"><img src="static/assets/images/pic03.jpg" alt=""/></span>
+            <p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend
+                sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam.
+                Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum
+                primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+        </article>
+
+        <!-- Contact -->
+        <article id="contact">
+            <h2 class="major">Contact</h2>
+            <form action="/submit_form" method="post">
+                <div class="fields">
+                    <div class="field half">
+                        <label for="name">Name<span style="color:red;font-weight:bold">*</span></label>
+                        <input type="text" name="name" id="name" required/>
+                    </div>
+                    <div class="field half">
+                        <label for="email">Email<span style="color:red;font-weight:bold">*</span></label>
+                        <input type="text" name="email" id="email" required/>
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Message<span style="color:red;font-weight:bold">*</span></label>
+                        <textarea name="message" id="message" rows="4" required></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" class="primary"/></li>
+                    <li><input type="reset" value="Reset"/></li>
+                </ul>
+                <p style="color:red;font-size:15px;font-weight:bold">*Required fields</p>
+            </form>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </article>
+
+        <!-- Thank you  -->
+        <article id="thankyou">
+            <h2 class="major">Thank you, {{name}}</h2>
+            <span class="image main"><img src="static/assets/images/pic03.jpg" alt=""/></span>
+            <p>This form sends notifications directly to my phone! I will get back to you ASAP. Thanks for reaching
+                out.</p>
+        </article>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="copyright">&copy; Albert Montufar. Built and hosted using Python. 2023 <a
+                href="https://html5up.net/dimension">Template
+            Source</a>.
+        </p>
+    </footer>
+
+</div>
+
+<!-- BG -->
+<div id="bg"></div>
+
+<!-- Scripts -->
+<script src="./static/assets/js/jquery.min.js"></script>
+<script src="./static/assets/js/browser.min.js"></script>
+<script src="./static/assets/js/breakpoints.min.js"></script>
+<script src="./static/assets/js/util.js"></script>
+<script src="./static/assets/js/main.js"></script>
+
+</body>
+</html>
