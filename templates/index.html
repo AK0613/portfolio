@@ -269,6 +269,7 @@
         <article id="projects">
             <h2 class="major">Projects</h2>
             <p>I am really proud of this portfolio and here is a breakdown of how it works!!</p>
+            <h2>Code Highlights</h2>
             <p>I am using the Flask framework to deploy the web application, GitHub as my source control provider, and
                 PythonAnywhere to host and display my site all over the world. <br/>
                 From Flask, I'm importing the following:</p>
@@ -299,16 +300,27 @@
             <p>From the data provided in the form, I get the name, email, and message and assign it to variables. These
                 variables will be used to send the email and will be written to a CSV file.
             </p>
-            <p>The <span class="func">send_email</span> function emails me a copy of all the information located in the
-                form. </p>
+            <p>The <span class="func">send_email</span> function emails me a copy of all the information contained in
+                the form. </p>
             <span class="image main"><img src="static/assets/images/send_email.png"
                                           alt="write_to_csv and send_email "/></span>
             <p>This is done by creating an email object. Then, passing to it all the information that will be in the
                 message.</p>
-            <p>Then using the SMTP library, I start the handshake process with my email provider. I pass it my login
-                information (redacted). Last but not least, the message is sent. </p>
+            <p>Using the SMTP library, I start the handshake process with my email provider, pass it my login
+                information (redacted), and finally send the message </p>
 
-            <p>The last, and also an ongoing process, is adding content to the HTML file. I am incredibly familiar with
+            <h3>Hosting and deploying the site</h3>
+            <p>The project is tied to <a class="inner" href="https://github.com/AK0613/portfolio">this Git
+                repository</a> in GitHub.</p>
+            <p>
+                PythonAnywhere (PA) provides a Terminal in which you are able to set up a virtual environment, install
+                all
+                dependencies, as well as the ability to clone and manage a Git repo. To update my site, all I need to do
+                is pull from my repo and restart the site. Any configuration required by PythonAnywhere was quickly
+                performed by following their documentation.
+            </p>
+
+            <p>The last step, which is still ongoing, is adding more content to the site. I am incredibly familiar with
                 HTML5 and CSS, so it has been easy to modify the template, add content, add CSS rules, etc. </p>
 
             <p>I will be adding links to other large projects I've completed soon!</p>
