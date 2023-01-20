@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect
 import csv
+import smtplib
+from email.message import EmailMessage
 
-# Flags to enable the debug mode so I can make changes without having to restart the flask server.
+# Flags to enable the debug mode, so I can make changes without having to restart the flask server.
 app = Flask(__name__)
 app.debug = True
 
@@ -35,11 +37,28 @@ def write_to_csv(data):
         name = data.get('name')
         email = data.get('email')
         message = data.get('message')
+        send_email(name, email, message)
         csv_writer = csv.writer(database, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([name, email, message])
 
 
-# Form submission handler. Uses POST request for the information. Then, all the data is stored in a dictionary for later use
+# Function that will send email to me with all information contained in the form
+def send_email(name, email_address, message):
+    email = EmailMessage()
+    email['from'] = name
+    email['to'] = 'montufar.albert@gmail.com'
+    email['subject'] = f'{name} contacted. Email is {email_address}'
+    email.set_content(message)
+
+    with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login('montufar.albert@gmail.com', 'pcmlyqdxykzzbzxf')
+        smtp.send_message(email)
+
+
+# Form submission handler. Uses POST request for the information.
+# Then, all the data is stored in a dictionary for later use
 # Redirects to a Thank You page!
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
@@ -48,19 +67,25 @@ def submit_form():
             data = request.form.to_dict()
             write_to_csv(data)
             return redirect('/#thankyou')
-        except:
-            return 'did not save to database'
+        except OSError as err:
+            return write_to_log(err)
     else:
         return 'Something went wrong. Try again in a while'
+
+
+def write_to_log(error):
+    with open('errorLog.txt') as log:
+        log.write(error)
 
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, use_reloader=True)
 
-# Commmands needed for the terminal
+# Commands needed for the terminal
 # Run in terminal
 # set FLASK_APP=server.py
 # $env:FLASK_APP = "server.py"
 # python -m flask run
 
-# If set FLASK_ENV=development enables the debug mode
+# If set enables the debug mode
+# $env:FLASK_ENV = "development"
