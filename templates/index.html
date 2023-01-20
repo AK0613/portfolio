@@ -62,7 +62,7 @@
                 <li>Playing soccer</li>
                 <li>Watching shows on streaming services</li>
             </ol>
-            <p>Also, please check out my <a href="#work">Work Experience</a></p>
+            <p>Also, please check out my <a class="inner" href="#work">Work Experience</a></p>
             <p>My <a class="inner" href="#skills">Skills</a></p>
             <p>And my <a class="inner" href="#projects">Projects</a></p>
             <h4>Thanks for checking out my site!</h4>
@@ -81,8 +81,7 @@
         <!-- Work -->
         <article id="work">
             <h2 class="major">Work Experience</h2>
-            <span class="image main"><img src="static/assets/images/pic02.jpg" alt=""/></span>
-            <p>I have the following experience:</p>
+            <p>My work experience includes but is not limited to the following:</p>
             <ul>
                 <li>Helped develop the automation framework for MadCap Flare (software from previous employer)
                     <ul>
@@ -224,7 +223,6 @@
         <!-- Skills -->
         <article id="skills">
             <h2 class="major">Skills</h2>
-            <span class="image main"><img src="static/assets/images/pic03.jpg" alt=""/></span>
             <h3>My skills include:</h3>
             <ul>
                 <li>I have strong knowledge of the Python, C#, and C++ languages
@@ -234,7 +232,8 @@
                         </li>
                     </ul>
                 </li>
-                <li>Fast, self-motivated, learner</li>
+                <li><span class="oomph">Fast, self-motivated, and efficient learner</span>. This is my best asset.
+                </li>
                 <li>Strong familiarity with Agile development cycle</li>
                 <li>Knowledge of Manual testing, Automation testing, Unit testing, and Functional Unit Testing</li>
                 <li>Knowledge of QA Automation tools such as Selenium and PowerAutomate</li>
@@ -244,8 +243,8 @@
                 <li>Knowledge of Source Control (TFS, Git, Subversion, Perforce)</li>
                 <li>Proficient use of Microsoft Office (Word, Excel, Powerpoint, Access)</li>
                 <li>Knowledge of Cisco Routing Protocols (CCNA Routing and Switching)</li>
-                <li>Experienced in maintaining/repairing/troubleshooting issues with desktop computers or internet
-                    networks (Hardware/Software)
+                <li>Experienced in assembling/maintaining/repairing/troubleshooting issues with desktop computers or
+                    internet networks (Hardware/Software)
                 </li>
                 <li>Strong Technical Support skills with focus on customer assistance</li>
                 <li>Can efficiently share knowledge with teammates or customers</li>
@@ -269,8 +268,51 @@
 
         <article id="projects">
             <h2 class="major">Projects</h2>
-            <span class="image main"><img src="static/assets/images/pic01.jpg" alt=""/></span>
-            <p>These are some of my projects</p>
+            <p>I am really proud of this portfolio and here is a breakdown of how it works!!</p>
+            <p>I am using the Flask framework to deploy the web application, GitHub as my source control provider, and
+                PythonAnywhere to host and display my site all over the world. <br/>
+                From Flask, I'm importing the following:</p>
+            <ol>
+                <li>Flask to instantiate the application</li>
+                <li>render_template: used for routing as well as to indicate which HTML files are served at each
+                    endpoint
+                </li>
+                <li>request: to handle the form request in the Contact page.</li>
+            </ol>
+            <p>I am also importing the built-in modules smtplib and email.message to send an email directly to me when
+                the form is sent.</p>
+            <span class="image main"><img src="static/assets/images/flask_routes.png"
+                                          alt="flask setup and routing demonstration"/></span>
+            <p>After the routing to serve the homepage is done, I focused on the Contact page. <br>
+                I chose to use the POST request instead of GET in order to keep information from the form out of the URL
+                and used a Dictionary to store this information. <br><br>
+                There is also a <span class="try">try/except</span> block to catch any OS errors when trying to write to
+                this CSV file and write the error(s) in a log file.
+            </p>
+            <span class="image main"><img src="static/assets/images/form_submission.png"
+                                          alt="code that handles form submission"/></span>
+            <p>The function <span class="func">write_to_csv</span> writes a copy of the information in the form into a
+                CSV file. The implementation can be seen below </p>
+
+            <span class="image main"><img src="static/assets/images/write_to_csv.png"
+                                          alt="write_to_csv and send_email "/></span>
+            <p>From the data provided in the form, I get the name, email, and message and assign it to variables. These
+                variables will be used to send the email and will be written to a CSV file.
+            </p>
+            <p>The <span class="func">send_email</span> function emails me a copy of all the information located in the
+                form. </p>
+            <span class="image main"><img src="static/assets/images/send_email.png"
+                                          alt="write_to_csv and send_email "/></span>
+            <p>This is done by creating an email object. Then, passing to it all the information that will be in the
+                message.</p>
+            <p>Then using the SMTP library, I start the handshake process with my email provider. I pass it my login
+                information (redacted). Last but not least, the message is sent. </p>
+
+            <p>The last, and also an ongoing process, is adding content to the HTML file. I am incredibly familiar with
+                HTML5 and CSS, so it has been easy to modify the template, add content, add CSS rules, etc. </p>
+
+            <p>I will be adding links to other large projects I've completed soon!</p>
+
             <ul class="icons">
                 <li><a href="https://www.linkedin.com/in/albert-montufar-095055151/" class="icon brands fa-linkedin"
                        target="_blank" rel="noopener noreferrer"
@@ -293,7 +335,7 @@
                     </div>
                     <div class="field half">
                         <label for="email">Email<span style="color:red;font-weight:bold">*</span></label>
-                        <input type="text" name="email" id="email" required/>
+                        <input type="email" name="email" id="email" required/>
                     </div>
 
                     <div class="field">
@@ -320,7 +362,7 @@
 
         <!-- Thank you  -->
         <article id="thankyou">
-            <h2 class="major">Thank you for reaching out, {{name}}</h2>
+            <h2 class="major">Thank you for reaching out!</h2>
             <span class="image main"><img src="static/assets/images/pic03.jpg" alt=""/></span>
             <p>This message has been sent directly to my email. I will get back to you ASAP! </p>
 

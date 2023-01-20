@@ -33,6 +33,19 @@ body {
 	line-height: 1;
 }
 
+span.func {
+    color: #85c92c;
+}
+
+span.try{
+    color: #53cee5;
+}
+
+span.oomph{
+    color: #53cee5;
+    font-weight: bold;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -735,7 +748,7 @@ input, select, textarea {
 	}
 
 		ol li {
-			padding-left: 0.25em;
+			margin-left: 1.2em;
 		}
 
 	ul {
@@ -1665,3 +1678,4 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+

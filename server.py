@@ -3,9 +3,8 @@ import csv
 import smtplib
 from email.message import EmailMessage
 
-# Flags to enable the debug mode, so I can make changes without having to restart the flask server.
+# instantiating Flask app
 app = Flask(__name__)
-app.debug = True
 
 
 # Landing page route
@@ -18,6 +17,27 @@ def my_home():
 @app.route('/<string:page_name>')
 def html_page(page_name):
     return render_template(page_name)
+
+
+# Form submission handler. Uses POST request for the information.
+# Then, all the data is stored in a dictionary for later use
+# Redirects to a Thank you page!
+@app.route('/submit_form', methods=['POST', 'GET'])
+def submit_form():
+    if request.method == 'POST':
+        try:
+            data = request.form.to_dict()
+            write_to_csv(data)
+            return redirect('/#thankyou')
+        except OSError as err:
+            return write_to_log(err)
+    else:
+        return 'Something went wrong. Try again in a while'
+
+
+def write_to_log(error):
+    with open('errorLog.txt') as log:
+        log.write(error)
 
 
 # When a form is submitted, this appends the information into a text file
@@ -55,27 +75,6 @@ def send_email(name, email_address, message):
         smtp.starttls()
         smtp.login('montufar.albert@gmail.com', 'pcmlyqdxykzzbzxf')
         smtp.send_message(email)
-
-
-# Form submission handler. Uses POST request for the information.
-# Then, all the data is stored in a dictionary for later use
-# Redirects to a Thank You page!
-@app.route('/submit_form', methods=['POST', 'GET'])
-def submit_form():
-    if request.method == 'POST':
-        try:
-            data = request.form.to_dict()
-            write_to_csv(data)
-            return redirect('/#thankyou')
-        except OSError as err:
-            return write_to_log(err)
-    else:
-        return 'Something went wrong. Try again in a while'
-
-
-def write_to_log(error):
-    with open('errorLog.txt') as log:
-        log.write(error)
 
 
 if __name__ == "__main__":
