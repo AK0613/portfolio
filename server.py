@@ -38,7 +38,7 @@ def submit_form():
 
 def write_to_log(error):
     with open('errorLog.txt') as log:
-        log.write(error)
+        log.write(str(error))
 
 
 # When a form is submitted, this appends the information into a text file
@@ -65,16 +65,20 @@ def write_to_csv(data):
 
 # Function that will send email to me with all information contained in the form
 def send_email(name, email_address, message):
+    with open('config.json', 'r') as session:
+        session_data = json.load(session)
+        un = session_data['un']
+        pw = session_data['p']
     email = EmailMessage()
     email['from'] = name
-    email['to'] = ''
+    email['to'] = f'{un}'
     email['subject'] = f'{name} contacted. Email is {email_address}'
     email.set_content(message)
 
     with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
         smtp.ehlo()
         smtp.starttls()
-        smtp.login('', '')
+        smtp.login(un, pw)
         smtp.send_message(email)
 
 
