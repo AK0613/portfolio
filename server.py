@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import csv
 import smtplib
 from email.message import EmailMessage
+import json
 
 # instantiating Flask app
 app = Flask(__name__)
@@ -66,7 +67,7 @@ def write_to_csv(data):
 def send_email(name, email_address, message):
     email = EmailMessage()
     email['from'] = name
-    email['to'] = 'montufar.albert@gmail.com'
+    email['to'] = ''
     email['subject'] = f'{name} contacted. Email is {email_address}'
     email.set_content(message)
 
